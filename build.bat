@@ -25,13 +25,14 @@ if errorlevel 1 (
 )
 
 if exist release rmdir /s /q release
-mkdir release\siyuan-voicenotes-topic-link
-copy /y dist\index.js release\siyuan-voicenotes-topic-link\index.js >nul
-copy /y dist\plugin.json release\siyuan-voicenotes-topic-link\plugin.json >nul
-copy /y dist\README.md release\siyuan-voicenotes-topic-link\README.md >nul
+mkdir release
+copy /y dist\index.js release\index.js >nul
+copy /y dist\plugin.json release\plugin.json >nul
+copy /y dist\README.md release\README.md >nul
 
-echo [3/3] Creating install ZIP...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "Compress-Archive -Path 'release\siyuan-voicenotes-topic-link' -DestinationPath 'siyuan-voicenotes-topic-link-0.1.4.zip' -Force"
+echo [3/3] Creating install ZIP with required files at ZIP root...
+if exist siyuan-voicenotes-topic-link-0.1.4.zip del /q siyuan-voicenotes-topic-link-0.1.4.zip
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Compress-Archive -Path 'release\*' -DestinationPath 'siyuan-voicenotes-topic-link-0.1.4.zip' -Force"
 if errorlevel 1 (
   echo ERROR: Could not create ZIP. The built files are in the release folder.
   pause
@@ -39,5 +40,6 @@ if errorlevel 1 (
 )
 echo.
 echo SUCCESS: siyuan-voicenotes-topic-link-0.1.4.zip was created.
+echo IMPORTANT: ZIP contents must directly contain index.js, plugin.json and README.md.
 echo This ZIP is the installable plugin package. Do not install the source project ZIP itself.
 pause
