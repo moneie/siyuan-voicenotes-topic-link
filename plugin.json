@@ -1,0 +1,20 @@
+{
+  "name": "siyuan-voicenotes-topic-link",
+  "author": "moneie",
+  "url": "https://github.com/moneie/siyuan-voicenotes-topic-link",
+  "version": "0.1.4",
+  "minAppVersion": "3.8.6",
+  "backends": ["windows", "linux", "darwin"],
+  "frontends": ["desktop"],
+  "displayName": {
+    "default": "VoiceNotes Topic Link",
+    "zh-CN": "VoiceNotes 主题双链转换"
+  },
+  "description": {
+    "default": "Convert unique VoiceNotes [[topic]] markers into native SiYuan document references when pasting.",
+    "zh-CN": "粘贴 VoiceNotes 内容时，将唯一匹配的 [[主题名]] 转换为思源原生文档引用；未找到或重名时保留原文。"
+  },
+  "readme": { "default": "README.md", "zh-CN": "README.md" },
+  "funding": { "openCollective": "", "patreon": "", "github": "", "custom": [] },
+  "keywords": ["VoiceNotes", "paste", "document reference", "双链"]
+}
